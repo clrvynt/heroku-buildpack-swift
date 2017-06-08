@@ -8,6 +8,14 @@ indent() {
   sed -u 's/^/       /'
 }
 
+function fail() {
+    say Build failure: $*
+    step Log
+    popd
+    cat $BUILD_DIR/build.log
+    exit 1
+  }
+
 BIN_DIR=$(cd $(dirname $0); pwd)
 ROOT_DIR=$(dirname $BIN_DIR)
 
