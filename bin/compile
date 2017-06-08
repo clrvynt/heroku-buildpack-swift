@@ -8,6 +8,10 @@ indent() {
   sed -u 's/^/       /'
 }
 
+function say() {
+    echo $* | sed -u 's/^/       /'
+  }
+
 function fail() {
     say Build failure: $*
     step Log
